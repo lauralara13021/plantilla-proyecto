@@ -8,26 +8,97 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "cuentas")
-public class Cuenta extends Producto {
+public abstract class Cuenta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    private ProductosPK pk;
+    private String estado;
+    private String tipo;
     private Integer dinero;
     
+    
+    
+
+
+    public Cuenta(ProductosPK pk, String estado, String tipo, Integer dinero) {
+        this.pk = pk;
+        this.estado = estado;
+        this.tipo = tipo;
+        this.dinero = dinero;
+    }
+
+
+
+
+
     public Cuenta()
     {;}
 
-    public Cuenta(Integer id, Cliente cliente, String estado,Integer dinero) {
-        super(id, cliente, estado);
-        this.dinero = dinero;}
 
-    
+
+
+
+    public ProductosPK getPk() {
+        return pk;
+    }
+
+
+
+
+
+    public void setPk(ProductosPK pk) {
+        this.pk = pk;
+    }
+
+
+
+
+
+    public String getEstado() {
+        return estado;
+    }
+
+
+
+
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+
+
+
+
+    public String getTipo() {
+        return tipo;
+    }
+
+
+
+
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+
+
+
+
     public Integer getDinero() {
         return dinero;
     }
+
+
+
+
+
     public void setDinero(Integer dinero) {
         this.dinero = dinero;
     }
 
-    
+
+   
 }

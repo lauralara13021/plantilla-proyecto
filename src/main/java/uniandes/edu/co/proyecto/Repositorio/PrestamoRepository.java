@@ -1,3 +1,4 @@
+/*
 package uniandes.edu.co.proyecto.Repositorio;
 
 import java.util.Collection;
@@ -34,3 +35,4 @@ public interface PrestamoRepository extends JpaRepository<Prestamo,Integer> {
     void eliminarPrestamo(@Param("interes") Integer interes, @Param("cuotas") Integer cuotas, @Param("valorCuenta") Integer valorCuenta, @Param("monto") Integer monto, @Param("diaCorte") String diaCorte);
   
 }
+ */

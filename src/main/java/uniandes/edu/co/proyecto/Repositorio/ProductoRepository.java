@@ -1,3 +1,4 @@
+/* 
 package uniandes.edu.co.proyecto.Repositorio;
 
 import java.util.Collection;
@@ -33,3 +34,4 @@ public interface ProductoRepository extends JpaRepository<Producto,Integer> {
     void insertarProducto(@Param("cliente") Cliente cliente, @Param("estado") String estado);
   
 }
+*/

@@ -1,3 +1,4 @@
+/* 
 package uniandes.edu.co.proyecto.Repositorio;
 
 import java.util.Collection;
@@ -34,3 +35,4 @@ public interface CuentaRepository extends JpaRepository<Cuenta,String> {
     void eliminarCuenta(@Param("cliente") Cliente cliente, @Param("estado") String estado, @Param("dinero") String dinero);
   
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package uniandes.edu.co.proyecto.Repositorio;
 
 import java.util.Collection;
@@ -34,3 +35,4 @@ public interface PuntoDeAtencionRepository extends JpaRepository<PuntoDeAtencion
     void eliminarPuntoDeAtencion(@Param("tipo") String tipo, @Param("localizacion") String localizacion, @Param("oficina") Oficina oficina);
   
 }
+ */

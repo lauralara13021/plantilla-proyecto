@@ -5,39 +5,66 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.criteria.CriteriaBuilder.In;
 
 @Entity
 @Table(name = "prestamos")
 public abstract class Prestamo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer interes;
+    private ProductosPK pk;
+    private String estado;
+    private String tipo;
+    private Double interes;
     private Integer cuotas;
-    private Integer valorCuenta;
+    private Double valorCuota;
     private Integer monto;
     private String diaCorte;
-
-
-
+    private Double saldoPendiente;
+    public Prestamo(ProductosPK pk, String estado, String tipo, Double interes, Integer cuotas, Double valorCuota,
+            Integer monto, String diaCorte, Double saldoPendiente) {
+        this.pk = pk;
+        this.estado = estado;
+        this.tipo = tipo;
+        this.interes = interes;
+        this.cuotas = cuotas;
+        this.valorCuota = valorCuota;
+        this.monto = monto;
+        this.diaCorte = diaCorte;
+        this.saldoPendiente = saldoPendiente;
+    }
+    
     public Prestamo()
-        {;}
+    {;}
 
-   
+    public ProductosPK getPk() {
+        return pk;
+    }
 
-    public Prestamo(Integer id, Cliente cliente, String estado, Integer interes, Integer cuotas, Integer valorCuenta, Integer monto, String diaCorte) {
-       super(id,cliente, estado);
-       this.interes = interes;
-       this.cuotas  = cuotas;  
-       this.valorCuenta = valorCuenta;
-       this.monto   = monto;
-       this.diaCorte = diaCorte;}
+    public void setPk(ProductosPK pk) {
+        this.pk = pk;
+    }
 
-       public Integer getInteres() {
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public Double getInteres() {
         return interes;
     }
 
-    public void setInteres(Integer interes) {
+    public void setInteres(Double interes) {
         this.interes = interes;
     }
 
@@ -49,12 +76,12 @@ public abstract class Prestamo {
         this.cuotas = cuotas;
     }
 
-    public Integer getValorCuenta() {
-        return valorCuenta;
+    public Double getValorCuota() {
+        return valorCuota;
     }
 
-    public void setValorCuenta(Integer valorCuenta) {
-        this.valorCuenta = valorCuenta;
+    public void setValorCuota(Double valorCuota) {
+        this.valorCuota = valorCuota;
     }
 
     public Integer getMonto() {
@@ -73,6 +100,15 @@ public abstract class Prestamo {
         this.diaCorte = diaCorte;
     }
 
-       
+    public Double getSaldoPendiente() {
+        return saldoPendiente;
+    }
+
+    public void setSaldoPendiente(Double saldoPendiente) {
+        this.saldoPendiente = saldoPendiente;
+    }
+    
+   
+}
 
         
