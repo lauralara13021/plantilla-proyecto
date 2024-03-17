@@ -8,6 +8,7 @@ public abstract class Persona {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String numeroDocumento;
+    
     public Persona(Integer id, String numeroDocumento) {
         this.id = id;
         this.numeroDocumento = numeroDocumento;

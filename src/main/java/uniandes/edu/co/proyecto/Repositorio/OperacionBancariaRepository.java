@@ -1,6 +1,6 @@
-/*
-package uniandes.edu.co.proyecto.Repositorio;
+/*package uniandes.edu.co.proyecto.Repositorio;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Collection;
 
@@ -22,6 +22,20 @@ public interface OperacionBancariaRepository extends JpaRepository<OperacionBanc
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO operacionesBancarias (id, hora, fecha, idOrigen, idDestino, puntoAtencion, valor, tipo) VALUES(proyecto_sequence.nextval, :hora, :fecha, :idOrigen, :idDestino, :puntoAtencion, :valor, :tipo)")
-    void insertarOperacionBancaria(@Param("id") String id, @Param("hora") LocalTime hora, @Param("fecha") LocalDate fecha, @Param("idOrigen") String idOrigen, @Param("idDestino") String idDestino, @Param("puntoAtencion") String puntoAtencion, @Param("valor") Integer valor, @Param("id") String id )
+    void insertarOperacionBancaria(@Param("hora") LocalTime hora, @Param("fecha") LocalDate fecha, @Param("idOrigen") String idOrigen, @Param("idDestino") String idDestino, @Param("puntoAtencion") String puntoAtencion, @Param("valor") Integer valor);
+    
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE operacionesBancarias SET hora =:hora, fecha =:fecha, idOrigen =:idOrigen, idDestino =:idDestino, puntoAtencion =:puntoAtencion, valor=:valor, tipo=:tipo WHERE id =:id", nativeQuery = true)
+    void actualizarOperacionBancaria(@Param("id") int id,@Param("hora") LocalTime hora, @Param("fecha") LocalDate fecha, @Param("idOrigen") String idOrigen, @Param("idDestino") String idDestino, @Param("puntoAtencion") String puntoAtencion, @Param("valor") Integer valor);
+
+    @Modifying
+    @Transactional
+    @Query(value = "DELETE FROM opcionesBancarias WHERE id =:id", nativeQuery = true)
+    void eliminarOperacionBancaria(@Param("id") int id);
+  
+
+
+
 }
- */
+*/

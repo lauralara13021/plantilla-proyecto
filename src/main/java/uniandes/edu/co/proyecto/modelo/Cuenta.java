@@ -13,6 +13,7 @@ public abstract class Cuenta {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private ProductosPK pk;
+    //private Integer id;
     private String estado;
     private String tipo;
     private Integer dinero;
@@ -23,6 +24,7 @@ public abstract class Cuenta {
 
     public Cuenta(ProductosPK pk, String estado, String tipo, Integer dinero) {
         this.pk = pk;
+        //this.id = id;
         this.estado = estado;
         this.tipo = tipo;
         this.dinero = dinero;
@@ -52,6 +54,7 @@ public abstract class Cuenta {
     }
 
 
+  
 
 
 
@@ -90,9 +93,6 @@ public abstract class Cuenta {
     public Integer getDinero() {
         return dinero;
     }
-
-
-
 
 
     public void setDinero(Integer dinero) {

@@ -12,6 +12,7 @@ public abstract class Prestamo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private ProductosPK pk;
+    //private int id;
     private String estado;
     private String tipo;
     private Double interes;
@@ -23,6 +24,7 @@ public abstract class Prestamo {
     public Prestamo(ProductosPK pk, String estado, String tipo, Double interes, Integer cuotas, Double valorCuota,
             Integer monto, String diaCorte, Double saldoPendiente) {
         this.pk = pk;
+        //this.id = id;
         this.estado = estado;
         this.tipo = tipo;
         this.interes = interes;
@@ -40,10 +42,21 @@ public abstract class Prestamo {
         return pk;
     }
 
+    
     public void setPk(ProductosPK pk) {
         this.pk = pk;
     }
 
+
+    /* 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id= id;
+    }
+*/
     public String getEstado() {
         return estado;
     }

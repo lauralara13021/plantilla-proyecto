@@ -1,4 +1,3 @@
-/* 
 package uniandes.edu.co.proyecto.Repositorio;
 
 import java.util.Collection;
@@ -9,10 +8,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import jakarta.transaction.Transactional;
+import uniandes.edu.co.proyecto.modelo.Cliente;
 import uniandes.edu.co.proyecto.modelo.Producto;
 
 public interface ProductoRepository extends JpaRepository<Producto,Integer> {
-    @Query(value = "SELECT * FROM productos")
+    @Query(value = "SELECT p FROM Producto p")
     Collection<Producto> getProducto();
 
     @Query(value = "SELECT * FROM productos WHERE id= :id", nativeQuery = true )
@@ -25,13 +25,12 @@ public interface ProductoRepository extends JpaRepository<Producto,Integer> {
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE productos SET cliente = :cliente, estado =: estado, valorCuenta =: valorCuenta WHERE id =:id", nativeQuery = true)
-    void insertarProducto(@Param("cliente") Cliente cliente, @Param("estado") String estado);
+    @Query(value = "UPDATE productos SET cliente = :cliente, estado = :estado, valorCuenta = :valorCuenta, monto = :monto, diaCorte = :diaCorte WHERE id =:id", nativeQuery = true)
+    void actualizarProducto(@Param("id") int id,@Param("cliente") Cliente cliente, @Param("estado") String estado);
 
     @Modifying
     @Transactional
     @Query(value = "DELETE FROM productos WHERE id =:id", nativeQuery = true)
-    void insertarProducto(@Param("cliente") Cliente cliente, @Param("estado") String estado);
+    void eliminarProducto(@Param("id") int id);
   
 }
-*/
