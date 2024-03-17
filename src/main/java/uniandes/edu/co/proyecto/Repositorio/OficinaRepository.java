@@ -10,7 +10,6 @@ import org.springframework.data.repository.query.Param;
 import jakarta.transaction.Transactional;
 import uniandes.edu.co.proyecto.modelo.Direccion;
 import uniandes.edu.co.proyecto.modelo.Oficina;
-import uniandes.edu.co.proyecto.modelo.PuntoDeAtencion;
 
 
 public interface OficinaRepository extends JpaRepository<Oficina,Integer> {
@@ -23,13 +22,13 @@ public interface OficinaRepository extends JpaRepository<Oficina,Integer> {
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO oficinas (id, nombre, direccion, puntosAtencion) VALUES(bancandes_sequence.nextval,:nombre, :direccion, :puntosAtencion)", nativeQuery = true )
-    void insertarOficina(@Param("nombre") String nombre,@Param("direccion") Direccion direccion, @Param("puntosAtencion") PuntoDeAtencion puntosAtencion);
+    void insertarOficina(@Param("nombre") String nombre,@Param("direccion") Direccion direccion, @Param("puntosAtencion") Integer integer);
 
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE oficinas SET estado = :estado, tipo = :tipo,  dinero = :dinero WHERE id =:id", nativeQuery = true)
-    void actualizarOficina(@Param("id") Integer id, @Param("estado") String estado, @Param("tipo") String tipo, @Param("dinero") Integer integer);
+    @Query(value = "UPDATE oficinas SET nombre = :nombre, direccion = :direccion,  puntosAtencion= :puntosAtencion WHERE id =:id", nativeQuery = true)
+    void actualizarOficina(@Param("id") Integer id, @Param("nombre") String nombre, @Param("direccion") Direccion direccion,  @Param("puntosAtencion") Integer integer);
 
     @Modifying
     @Transactional
